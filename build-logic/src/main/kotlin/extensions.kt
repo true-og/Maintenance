@@ -36,5 +36,5 @@ fun Project.latestCommitHash(): String {
 }
 
 fun JavaPluginExtension.javaTarget(version: Int) {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(version))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }

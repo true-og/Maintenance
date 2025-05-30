@@ -2,6 +2,7 @@ import org.gradle.api.plugins.JavaPlugin.TEST_IMPLEMENTATION_CONFIGURATION_NAME
 
 plugins {
     base
+	id("eclipse")
     id("maintenance.build-logic")
 }
 
