@@ -1,3 +1,5 @@
+val protocollibJar = rootProject.layout.projectDirectory.file(libs.versions.protocollibJarPath.get()).asFile
+
 dependencies {
     implementation(projects.maintenanceCore)
     implementation(projects.adventure.adventurePlatformBukkit) {
@@ -6,5 +8,6 @@ dependencies {
     implementation(libs.bstatsBukkit)
     compileOnly(libs.paper)
     compileOnly(libs.authlib)
-    compileOnly(libs.protocollib)
+    compileOnly(files(protocollibJar))
 }
+
