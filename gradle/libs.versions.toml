@@ -26,6 +26,7 @@ sponge = "8.0.0"
 velocity = "3.1.0"
 
 junitVer = "5.11.0"
+protocollibJarPath = "libs/ProtocolLib-5.0.jar"
 
 
 [libraries]
@@ -66,3 +67,4 @@ jupiterEngine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", ve
 
 adventure = ["adventureApi", "adventureTextMinimessage", "adventureTextSerializerGson", "adventureTextSerializerLegacy"]
 junit = ["jupiterApi", "jupiterEngine"]
+
