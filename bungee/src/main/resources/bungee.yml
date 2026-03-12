@@ -1,7 +1,0 @@
-name: Maintenance
-version: ${version}
-main: eu.kennytv.maintenance.bungee.MaintenanceBungeeBase
-author: kennytv
-description: ${description}
-softDepends: [ServerListPlus, LuckPerms]
-website: https://hangar.papermc.io/kennytv/Maintenance

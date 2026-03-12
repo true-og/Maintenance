@@ -14,7 +14,6 @@ allprojects {
 
 val platforms = setOf(
     projects.maintenancePaper,
-    projects.maintenanceBungee,
     projects.maintenanceSponge,
     projects.maintenanceVelocity
 ).map { it.path }
@@ -26,7 +25,6 @@ val special = setOf(
     projects.adventure,
     projects.adventure.adventureApi,
     projects.adventure.adventurePlatformBukkit,
-    projects.adventure.adventurePlatformBungee,
 ).map { it.path }
 
 subprojects {

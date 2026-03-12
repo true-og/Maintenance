@@ -7,7 +7,6 @@ plugins {
 // Not actually universal:tm:
 val platforms = setOf(
     rootProject.projects.maintenancePaper,
-    rootProject.projects.maintenanceBungee,
 ).map { it.path }
 
 tasks {

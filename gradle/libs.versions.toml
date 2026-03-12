@@ -21,7 +21,7 @@ luckperms = "5.3"
 serverlistplus = "3.5.0"
 
 paper = "1.16.5-R0.1-SNAPSHOT"
-bungee = "1.20-R0.1-SNAPSHOT"
+bungee = "1.19.4-R0.1-SNAPSHOT"
 sponge = "8.0.0"
 velocity = "3.1.0"
 
