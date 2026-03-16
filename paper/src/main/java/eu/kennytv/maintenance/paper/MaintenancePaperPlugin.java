@@ -88,13 +88,16 @@ public final class MaintenancePaperPlugin extends MaintenancePlugin {
         continueLastEndtimer();
         new Metrics(plugin, 2205);
 
-        final Plugin serverListPlus = pm.getPlugin("ServerListPlus");
-        if (pm.isPluginEnabled(serverListPlus)) {
-            serverListPlusHook = new ServerListPlusHook(serverListPlus);
+        Plugin serverListPlugin = pm.getPlugin("AdvancedServerList-OG");
+        if (serverListPlugin == null) {
+            serverListPlugin = pm.getPlugin("ServerListPlus");
+        }
+        if (pm.isPluginEnabled(serverListPlugin)) {
+            serverListPlusHook = new ServerListPlusHook(serverListPlugin);
             if (settings.isEnablePingMessages()) {
                 serverListPlusHook.setEnabled(!settings.isMaintenance());
             }
-            plugin.getLogger().info("Enabled ServerListPlus integration");
+            plugin.getLogger().info("Enabled server list plugin integration");
         }
 
         if (false && pm.isPluginEnabled("LuckPerms")) {
