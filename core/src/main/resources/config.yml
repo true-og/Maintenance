@@ -18,17 +18,16 @@
 language: en
 
 # Enables maintenance mode.
-maintenance-enabled: false
+maintenance-enabled: true
 
 # Enables maintenance on certain servers managed by your proxy instance(s).
 proxied-maintenance-servers:
-  - PaperServer1
-# - AnotherServer
+# - AServer
 
 # If maintenance is enabled on a proxied server with players on it, they will be sent to the fallback server instead of being kicked off the network.
 # If the fallback server is not reachable/not set, they will just be kicked off the network.
 # This can also be set to an array to set multiple fallback servers, in case one server is not always reachable: 'fallback: [s1, s2, s3, ...]'
-fallback: lobby
+fallback: unreachable
 
 # If maintenance is enabled globally, you can define a "waiting" lobby for players to be sent to instead of being kicked.
 # Leave this empty to disable.
@@ -40,12 +39,12 @@ waiting-server: ""
 ping-message:
   enabled: true
   messages:
-    - "<red>Currently under maintenance<br><gradient:#fbffc2:#0fffff>We will be back soon!"
+    - "<bold><green>True<red>OG</bold> <yellow>Network</yellow> <aqua>》<red>Maintenance Mode</red><aqua>《 <gold>[1.8.0-1.21.11]<br><dark_red>Maintenance in progress <gray>| <yellow>We will be back soon!"
   # If set to true and an endtimer is currently running, a message from this pool will be chosen
   # instead of the ones above, so you can have different messages for when an endtimer is running/not running.
   enable-timer-specific-messages: true
   timer-messages:
-    - "<red>Currently under maintenance<br><gradient:#fbffc2:#fffff>Come back in:</gradient> <color:#aa55ee>%TIMER%"
+    - "<bold><green>True<red>OG</bold> <yellow>Network</yellow> <aqua>》<red>Maintenance Mode</red><aqua>《 <gold>[1.8.0-1.21.11]<br><dark_red>Maintenance ends in <yellow>%TIMER% <gray>| <green>Thanks for waiting!"
 
 # If enabled, the message below will be shown in the top right corner of the server in the server list, where the player count would normally be displayed.
 # You can use '%ONLINE%' and '%MAX%' if you want to include the player count in a custom message (e.g. "Maintenance %ONLINE%/%MAX%").
@@ -54,7 +53,7 @@ player-count-message:
   enabled: true
   message: "<dark_red>Maintenance"
   # If set to true and an endtimer is currently running, the timer message will be used instead of the normal one.
-  enable-timer-specific-message: false
+  enable-timer-specific-message: true
   timer-message: "<dark_red>Come back in: <yellow>%TIMER%"
 
 # Is shown when you move your mouse above the text in the top right corner of the server in the server list, where the player count would normally be displayed.
@@ -63,7 +62,7 @@ player-list-hover-message:
   enabled: true
   message: "<red>Currently under<br><red>maintenance"
   # If set to true and an endtimer is currently running, the timer message will be used instead of the normal one.
-  enable-timer-specific-message: false
+  enable-timer-specific-message: true
   timer-message: "<red>Come back in:<br><red><yellow>%TIMER%"
 
 # Any extra commands inside the arrays will be executed when maintenance is enabled/disabled.
@@ -85,7 +84,7 @@ custom-maintenance-icon: false
 
 # If set to true, players with the 'maintenance.joinnotification' permission will receive a message,
 # that a player tried to join the server while maintenance is enabled.
-send-join-notification: false
+send-join-notification: true
 
 # Set this to false if you do not want players to be kicked when you enable maintenance (new connections will still be blocked).
 kick-online-players: true
@@ -125,7 +124,7 @@ mysql:
 # If disabled, you will no longer receive any messages if there is an update.
 # Not recommended to disable, as new versions generally tend to run better and with fewer bugs.
 # However, you can always check for updates manually using the '/maintenance update' command.
-update-checks: true
+update-checks: false
 
 # Used for autoupdating the config, do not change this value.
 config-version: 9
