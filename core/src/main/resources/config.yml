@@ -39,7 +39,7 @@ waiting-server: ""
 ping-message:
   enabled: true
   messages:
-    - "<bold><green>True<red>OG</bold> <yellow>Network</yellow> <aqua>》<red>Maintenance Mode</red><aqua>《 <gold>[1.8.0-1.21.11]<br><dark_red>Development is in progress... <gray>| <yellow>We will be back &3soon (tm)"
+    - "<bold><green>True<red>OG</bold> <yellow>Network</yellow> <aqua>》<red>Server Updating</red><aqua>《 <gold>[1.8.0-1.21.11]<br><dark_red>Maintenance in progress... <gray>| <yellow>We will be back <dark_aqua>soon (tm)"
   # If set to true and an endtimer is currently running, a message from this pool will be chosen
   # instead of the ones above, so you can have different messages for when an endtimer is running/not running.
   enable-timer-specific-messages: true
