@@ -146,6 +146,11 @@ public final class ConfigSerializer {
                 multiLineValue = false;
             }
 
+            // YAML list items are values, not keys - skip without touching key/indent state
+            if (line.length() > indent && line.charAt(indent) == '-') {
+                continue;
+            }
+
             // Check if this is a level lower
             if (indents <= currentIndents) {
                 final String[] array = key.split(PATH_SEPARATOR_QUOTED);
