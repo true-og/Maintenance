@@ -19,18 +19,12 @@ package eu.kennytv.maintenance.paper.listener;
 
 import com.destroystokyo.paper.event.server.PaperServerListPingEvent;
 import com.destroystokyo.paper.profile.PlayerProfile;
-import com.destroystokyo.paper.profile.ProfileProperty;
-import com.mojang.authlib.GameProfile;
 import eu.kennytv.maintenance.core.Settings;
 import eu.kennytv.maintenance.paper.MaintenancePaperPlugin;
 import eu.kennytv.maintenance.paper.util.ComponentUtil;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -67,106 +61,13 @@ public final class PaperServerListPingListener implements Listener {
             final List<PlayerProfile> sample = event.getPlayerSample();
             sample.clear();
             for (final String string : settings.getLegacyParsedPlayerCountHoverLines()) {
-                sample.add(new DummyProfile(string));
+                // Use Bukkit.createProfile so Paper's internal cast to CraftPlayerProfile succeeds.
+                sample.add(Bukkit.createProfile(UUID.randomUUID(), string));
             }
         }
 
         if (settings.hasCustomIcon() && plugin.getFavicon() != null) {
             event.setServerIcon(plugin.getFavicon());
-        }
-    }
-
-    // Less unnecessary object creation :>
-    private static final class DummyProfile implements PlayerProfile {
-        private final String name;
-
-        private DummyProfile(final String name) {
-            this.name = name;
-        }
-
-        @Nullable
-        @Override
-        public String getName() {
-            return name;
-        }
-
-        @Override
-        public String setName(@Nullable final String name) {
-            return this.name;
-        }
-
-        @Override
-        public UUID getId() {
-            return UUID.randomUUID();
-        }
-
-        @Override
-        public UUID setId(@Nullable final UUID uuid) {
-            return null;
-        }
-
-        @Nonnull
-        @Override
-        public Set<ProfileProperty> getProperties() {
-            return Collections.emptySet();
-        }
-
-        @Override
-        public boolean hasProperty(final String property) {
-            return false;
-        }
-
-        @Override
-        public void setProperty(final ProfileProperty property) {
-        }
-
-        @Override
-        public void setProperties(final Collection<ProfileProperty> properties) {
-        }
-
-        @Override
-        public boolean removeProperty(final String property) {
-            return false;
-        }
-
-        @Override
-        public void clearProperties() {
-        }
-
-        @Override
-        public boolean isComplete() {
-            return false;
-        }
-
-        @Override
-        public boolean completeFromCache() {
-            return false;
-        }
-
-        @Override
-        public boolean completeFromCache(final boolean b) {
-            return false;
-        }
-
-        @Override
-        public boolean completeFromCache(final boolean b, final boolean b1) {
-            return false;
-        }
-
-        @Override
-        public boolean complete(final boolean textures) {
-            return false;
-        }
-
-        @Override
-        public boolean complete(final boolean b, final boolean b1) {
-            return false;
-        }
-
-        // Keep this here for backwards compatibility
-        @SuppressWarnings("unused")
-        public GameProfile getGameProfile() {
-            return null;
         }
     }
 }
